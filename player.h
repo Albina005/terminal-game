@@ -7,23 +7,37 @@
 #include <string>
 #include <utility>
 
-#include "field.h"
+enum Direction {
+  up,
+  down,
+  left,
+  right,
+  undefined
+};
+
 class Field;
 class Boundaries;
 
+
 class Player {
-public:
   std::string name;
   int lives = 5;
+  bool game = true;
+public:
   int64_t score = 0;
   std::pair<int, int> location;
-  bool game;
 
   Player();
   Player(int x, int y);
   Player(std::string name);
+  std::string getName() const;
+  int getLives() const;
+  bool getGame() const;
+  void setName(std::string new_name);
+  void setLives(int new_lives);
+  void setGame(bool new_game);
 
-  void Move(char direction, Field& field, Boundaries& boundaries);
+  void Move(Direction direction, Field& field, Boundaries& boundaries);
   void GetCoin(Field& field);
 };
 

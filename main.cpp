@@ -1,8 +1,12 @@
 ﻿#include <iostream>
 #include <string>
-#include "imaging.cpp"
+#include <cstdlib>
+class Field;
+class Game;
 #include "field.cpp"
 #include "player.cpp"
+#include "imaging.cpp"
+
 #include <cstdlib>
 
 int main() {

@@ -1,4 +1,30 @@
 #include "imaging.h"
+#include "player.h"
+#include "field.h"
+
+#include <iostream>
+
+class IOManager {
+public:
+  virtual std::istream& Input() = 0;
+  virtual std::ostream& Output() = 0;
+  virtual ~IOManager() {}
+};
+
+class ConsoleManager {
+public:
+  std::ostream& Output(std::ostream& out, const Field& field, const Player& player) const {
+    system("cls");
+    out << "Name: " << player.getName() << " Score: " << player.score << " Lives: " << player.getLives() << '\n';
+    for (int i = 0; i < field.getHeight(); ++i) {
+      for (int j = 0; j < field.getWidth(); ++j) {
+        out << field.visual[i][j];
+      }
+      out << '\n';
+    }
+    return out;
+  }
+};
 
 void SetSize(const int width, const int height) {
   initscr();
@@ -6,16 +32,6 @@ void SetSize(const int width, const int height) {
   refresh();
 }
 
-void Draw(const Field& field, const Player& player, const Boundaries& bounds) {
-  system("cls");
-  std::cout << "Name: " << player.name << " Score: " << player.score << " Lives: " << player.lives << '\n';
-  for (int i = 0; i < field.getHeight() + 1; ++i) {
-    for (int j = 0; j < field.getWidth() + 1; ++j) {
-      std::cout << field.visual[j][i];
-    }
-    std::cout << std::endl;
-  }
-}
 
 bool IsKeyPressed() {
   nodelay(stdscr, TRUE);
@@ -33,21 +49,39 @@ int GetKeyPressed() {
 
 void RunGame(Player& player) {
   srand(time(nullptr));
-
+  ConsoleManager console;
   Field field;
   Boundaries bounds(field);
   bounds.SetBoundaries(field);
 
   SetSize(field.getWidth() * 3, field.getHeight() * 3);
 
-  while (player.game) {
+  while (player.getGame()) {
     if (IsKeyPressed()) {
+      Direction direction;
       int key = GetKeyPressed();
-      player.Move(key, field, bounds);
+      if (key == 'w' || key == 72) {
+        direction = up;
+      }
+      else if (key == 'a' || key == 75) {
+        direction = left;
+      }
+      else if (key == 's' || key == 80) {
+        direction = down;
+      }
+      else if (key == 'd' || key == 77) {
+        direction = right;
+      }
+      else {
+        direction = undefined;
+      }
+
+
+      player.Move(direction, field, bounds);
       player.GetCoin(field);
     }
 
-    Draw(field, player, bounds);
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    console.Output(std::cout, field, player);
+    // std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
 }
