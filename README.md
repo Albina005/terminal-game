@@ -9,13 +9,7 @@
 
 Запуск проекта:
 
-g++ -c player.h
-
-g++ -c field.h
-
-g++ -c imaging.h
-
-g++ -c -no-pie player.cpp field.cpp imaing.cpp main.cpp
-
-g++ main.o -o output -lncurses
-./output 
+cd build 
+cmake ..
+make 
+./ProjectTP

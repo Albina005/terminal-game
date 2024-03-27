@@ -8,21 +8,18 @@
 #include <algorithm>
 #include <utility>
 #include <string>
-#include "player.h"
 
 class Field {
-private:
   const int width = 20;
   const int height = 20;
-
-public:
   const int num_coins = 15;
+public:
   std::vector<std::vector<std::string>> visual;
   std::vector<std::pair<int, int>> available_coins;
 
   int getWidth() const;
   int getHeight() const;
-
+  int GetNumCoins() const;
   void SetCoins();
 };
 

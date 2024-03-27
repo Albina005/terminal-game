@@ -1,0 +1,3 @@
+/home/albina/project_tp/build/CMakeFiles/ProjectTP.dir
+/home/albina/project_tp/build/CMakeFiles/edit_cache.dir
+/home/albina/project_tp/build/CMakeFiles/rebuild_cache.dir

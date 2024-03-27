@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/ProjectTP.dir/main.cpp.o -o ProjectTP  -lncurses 
