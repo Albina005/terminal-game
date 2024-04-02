@@ -14,6 +14,9 @@ int Field::getHeight() const {
 int Field::GetNumCoins() const {
   return num_coins;
 }
+Field::Field() {
+  visual.resize(height + 1, std::vector<std::string>(width + 1));
+}
 
 void Field::SetCoins() {
   for (int i = 0; i < num_coins; ++i) {

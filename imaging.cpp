@@ -14,7 +14,7 @@ public:
 class ConsoleManager {
 public:
   std::ostream& Output(std::ostream& out, const Field& field, const Player& player) const {
-    system("cls");
+    system("gnome-terminal");
     out << "Name: " << player.getName() << " Score: " << player.score << " Lives: " << player.getLives() << '\n';
     for (int i = 0; i < field.getHeight(); ++i) {
       for (int j = 0; j < field.getWidth(); ++j) {
@@ -82,6 +82,6 @@ void RunGame(Player& player) {
     }
 
     console.Output(std::cout, field, player);
-    // std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
 }
