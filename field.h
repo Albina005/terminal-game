@@ -16,6 +16,9 @@ class Field {
 public:
   std::vector<std::vector<std::string>> visual;
   std::vector<std::pair<int, int>> available_coins;
+  Field();
+
+
 
   int getWidth() const;
   int getHeight() const;
