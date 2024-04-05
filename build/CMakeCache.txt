@@ -218,6 +218,24 @@ ProjectTP_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 ProjectTP_SOURCE_DIR:STATIC=/home/albina/project_tp
 
+//The directory containing a CMake configuration file for Qt5Core.
+Qt5Core_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+
+//The directory containing a CMake configuration file for Qt5Gui.
+Qt5Gui_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
+
+//The directory containing a CMake configuration file for Qt5Widgets.
+Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+
+//The directory containing a CMake configuration file for Qt5.
+Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
+
+//The directory containing a CMake configuration file for SFML.
+SFML_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SFML
+
+//Path to a file.
+SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

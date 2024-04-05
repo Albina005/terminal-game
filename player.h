@@ -7,7 +7,7 @@
 #include <string>
 #include <utility>
 
-enum Direction {
+enum class Direction {
   up,
   down,
   left,
@@ -17,7 +17,7 @@ enum Direction {
 
 class Field;
 class Boundaries;
-
+class Gui;
 
 class Player {
   std::string name;
@@ -37,8 +37,8 @@ public:
   void setLives(int new_lives);
   void setGame(bool new_game);
 
-  void Move(Direction direction, Field& field, Boundaries& boundaries);
-  void GetCoin(Field& field);
+  void Move(Gui& gui, Direction direction, Field& field, Boundaries& boundaries);
+  void GetCoin(Field& field, Gui& gui);
 };
 
 #endif

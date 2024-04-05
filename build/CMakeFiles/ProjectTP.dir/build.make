@@ -92,6 +92,9 @@ ProjectTP_EXTERNAL_OBJECTS =
 
 ProjectTP: CMakeFiles/ProjectTP.dir/main.cpp.o
 ProjectTP: CMakeFiles/ProjectTP.dir/build.make
+ProjectTP: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
+ProjectTP: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
+ProjectTP: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 ProjectTP: CMakeFiles/ProjectTP.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/albina/project_tp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ProjectTP"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjectTP.dir/link.txt --verbose=$(VERBOSE)

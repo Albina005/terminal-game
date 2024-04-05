@@ -1,6 +1,8 @@
 #include "player.h"
 #include "field.h"
 #include "imaging.h"
+#include "gui.h"
+
 #include <iostream>
 #include <cstdlib>
 
@@ -34,23 +36,23 @@ void Player::setGame(bool new_game) {
   game = new_game;
 }
 
-
-void Player::Move(Direction direction, Field& field, Boundaries& boundaries) {
+void Player::Move(Gui& gui, Direction direction, Field& field, Boundaries& boundaries) {
+  sf::RenderWindow& window = gui.GetWindow();
   int new_x = location.first;
   int new_y = location.second;
 
   field.visual[location.second][location.first] = "  ";
 
-  if (direction == up) {
+  if (direction == Direction::up) {
     new_y -= 1;  // Go Up
   }
-  else if (direction == left) {
+  else if (direction == Direction::left) {
     new_x -= 1;  // Go Left
   }
-  else if (direction == down) {
+  else if (direction == Direction::down) {
     new_y += 1;  // Go Down
   }
-  else if (direction == right) {
+  else if (direction == Direction::right) {
     new_x += 1;  // Go Right
   }
   else {
@@ -67,10 +69,7 @@ void Player::Move(Direction direction, Field& field, Boundaries& boundaries) {
         return;
       }
       else {
-        game = false;
-        system("cls");
-        std::cout << "You lost! \n" << "Your score: " << score << '\n';
-        std::system("pause");
+        gui.Losing();
         return;
       }
     }
@@ -81,14 +80,12 @@ void Player::Move(Direction direction, Field& field, Boundaries& boundaries) {
   field.visual[location.second][location.first] = "P ";
 }
 
-void Player::GetCoin(Field& field) {
+void Player::GetCoin(Field& field, Gui& gui) {
   if (score == field.GetNumCoins()) {
     game = false;
-    system("cls");
-    std::cout << "You win! \n";
-    std::system("pause");
-    return;
+    gui.Win();
   }
+
   for (auto it = field.available_coins.begin(); it != field.available_coins.end(); ++it) {
     if (location.second == it->second && location.first == it->first) {
       score += 1;

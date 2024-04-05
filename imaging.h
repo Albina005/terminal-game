@@ -16,10 +16,10 @@
 class IOManager;
 class ConsoleManager;
 
-void SetSize(const int width, const int height);
-// void Draw(const Field& field, const Player& player, const Boundaries& bounds);
+//void SetSize(const int width, const int height);
+//// void Draw(const Field& field, const Player& player, const Boundaries& bounds);
 bool IsKeyPressed();
 int GetKeyPressed();
-void RunGame(Player& player);
+void RunGame(Player& player, Gui& gui);
 
 #endif

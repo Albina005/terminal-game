@@ -1,88 +1,51 @@
 #include "imaging.h"
 #include "player.h"
 #include "field.h"
-
-#include <iostream>
-
-class IOManager {
-public:
-  virtual std::istream& Input() = 0;
-  virtual std::ostream& Output() = 0;
-  virtual ~IOManager() {}
-};
-
-class ConsoleManager {
-public:
-  std::ostream& Output(std::ostream& out, const Field& field, const Player& player) const {
-    system("cls");
-    out << "Name: " << player.getName() << " Score: " << player.score << " Lives: " << player.getLives() << '\n';
-    for (int i = 0; i < field.getHeight(); ++i) {
-      for (int j = 0; j < field.getWidth(); ++j) {
-        out << field.visual[i][j];
-      }
-      out << '\n';
-    }
-    return out;
-  }
-};
-
-void SetSize(const int width, const int height) {
-  initscr();
-  resize_term(height, width);
-  refresh();
-}
+#include "gui.h"
 
 
-bool IsKeyPressed() {
-  nodelay(stdscr, TRUE);
-  int ch = getch();
-  if (ch != ERR) {
-    ungetch(ch);
-    return true;
-  }
-  return false;
-}
-
-int GetKeyPressed() {
-  return getch();
-}
-
-void RunGame(Player& player) {
+void RunGame(Player& player, Gui& gui) {
   srand(time(nullptr));
-  ConsoleManager console;
   Field field;
   Boundaries bounds(field);
   bounds.SetBoundaries(field);
 
-  SetSize(field.getWidth() * 3, field.getHeight() * 3);
+  sf::RenderWindow& window = gui.GetWindow();
 
-  while (player.getGame()) {
-    if (IsKeyPressed()) {
-      Direction direction;
-      int key = GetKeyPressed();
-      if (key == 'w' || key == 72) {
-        direction = up;
+  while (player.getGame() && window.isOpen()) {
+    sf::Event event;
+    gui.Display(field, player);
+    Direction direction;
+    while (window.pollEvent(event)) {
+      if (event.type == sf::Event::Closed) {
+        window.close();
       }
-      else if (key == 'a' || key == 75) {
-        direction = left;
-      }
-      else if (key == 's' || key == 80) {
-        direction = down;
-      }
-      else if (key == 'd' || key == 77) {
-        direction = right;
-      }
-      else {
-        direction = undefined;
+      else if (event.type == sf::Event::KeyPressed) {
+      
+        if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) {
+          direction = Direction::up;
+        }
+        else if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left) {
+          direction = Direction::left;
+        }
+        else if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) {
+          direction = Direction::down;
+        }
+        else if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right) {
+          direction = Direction::right;
+        }
+        else {
+          direction = Direction::undefined;
+        }
+        player.Move(gui, direction, field, bounds);
+        player.GetCoin(field, gui);
+        gui.Display(field, player);
       }
 
 
-      player.Move(direction, field, bounds);
-      player.GetCoin(field);
     }
 
-    console.Output(std::cout, field, player);
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
 
 }
+

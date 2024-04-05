@@ -1,7 +1,7 @@
 #include "field.h"
 #include "player.h"
 #include "imaging.h"
-
+#include "gui.h"
 
 int Field::getWidth() const {
   return width;
@@ -17,6 +17,7 @@ int Field::GetNumCoins() const {
 
 Field::Field() {
   visual.resize(height + 1, std::vector<std::string>(width + 1));
+  SetCoins();
 }
 
 void Field::SetCoins() {
@@ -66,4 +67,15 @@ void Boundaries::SetBoundaries(Field& field) {
   for (int i = 0; i < num; ++i) {
     field.visual[bound[i].second][bound[i].first] = "# ";
   }
+
+  // Установка границ по всем сторонам поля
+  for (int i = 0; i < field.getWidth(); ++i) {
+    field.visual[0][i] = "# ";
+    field.visual[field.getHeight() - 1][i] = "# ";
+  }
+  for (int i = 0; i < field.getHeight(); ++i) {
+    field.visual[i][0] = "# ";
+    field.visual[i][field.getWidth() - 1] = "# ";
+  }
 }
+
