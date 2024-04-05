@@ -15,7 +15,7 @@ cd build
 
 cmake ..
 
-make 
+make ProjectTP 
 
 ./ProjectTP
 
