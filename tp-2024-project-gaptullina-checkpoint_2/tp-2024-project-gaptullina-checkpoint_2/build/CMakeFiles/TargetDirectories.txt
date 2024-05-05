@@ -1,3 +1,0 @@
-/home/albina/tp_tasks/project_tp/tp-2024-project-gaptullina-checkpoint_2/tp-2024-project-gaptullina-checkpoint_2/build/CMakeFiles/ProjectTP.dir
-/home/albina/tp_tasks/project_tp/tp-2024-project-gaptullina-checkpoint_2/tp-2024-project-gaptullina-checkpoint_2/build/CMakeFiles/edit_cache.dir
-/home/albina/tp_tasks/project_tp/tp-2024-project-gaptullina-checkpoint_2/tp-2024-project-gaptullina-checkpoint_2/build/CMakeFiles/rebuild_cache.dir

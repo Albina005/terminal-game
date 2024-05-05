@@ -15,10 +15,8 @@ class Game;
 
 int main() {
   Gui gui;
-  std::cout << "Smp";
   //// auto name = gui.GetName();
   Player player("SomeName");
-  std::cout << "Smp";
   RunGame(player, gui);
   return 0;
 }
