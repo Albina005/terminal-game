@@ -8,13 +8,15 @@
 #include <vector>
 #include <string>
 
-Gui::Gui() {
 
+
+Gui::Gui() {
   windowWidth = 800;
   windowHeight = 600;
-
+ 
   window.create(sf::VideoMode(windowWidth, windowHeight), "Display");
 }
+
 
 sf::RenderWindow& Gui::GetWindow() {
   return window;
@@ -24,7 +26,12 @@ std::string Gui::GetName() {
   std::string name;
 
   sf::Font font;
-  sf::Text inputText("", font, 24);
+  sf::Text inputText;
+  inputText.setFont(font);
+  inputText.setString("Enter name");
+  inputText.setPosition(100, 100);
+  inputText.setCharacterSize(24);
+
 
   while (window.isOpen()) {
     sf::Event event;
@@ -87,6 +94,9 @@ void Gui::Display(const Field& field, const Player& player) {
       }
       else if (visual[i][j] == "0 ") {
         rectangles[i][j].setFillColor(sf::Color::Yellow);
+      }
+      else if (visual[i][j] == "g ") {
+        rectangles[i][j].setFillColor(sf::Color::Black);
       }
 
       rectangles[i][j].setSize(sf::Vector2f(itemWidth, itemHeight));

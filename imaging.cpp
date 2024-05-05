@@ -2,16 +2,15 @@
 #include "player.h"
 #include "field.h"
 #include "gui.h"
-
+#include "ghost.h"
 
 void RunGame(Player& player, Gui& gui) {
   srand(time(nullptr));
   Field field;
+  Ghost ghost(field);
   Boundaries bounds(field);
-  bounds.SetBoundaries(field);
-
+  field.SetField(player, ghost, bounds);
   sf::RenderWindow& window = gui.GetWindow();
-
   while (player.getGame() && window.isOpen()) {
     sf::Event event;
     gui.Display(field, player);
@@ -37,8 +36,10 @@ void RunGame(Player& player, Gui& gui) {
         else {
           direction = Direction::undefined;
         }
-        player.Move(gui, direction, field, bounds);
+        ghost.Location(field, player);
+        player.Move(gui, direction, field, bounds, ghost);
         player.GetCoin(field, gui);
+        field.SetField(player, ghost, bounds);
         gui.Display(field, player);
       }
 

@@ -18,6 +18,7 @@ enum class Direction {
 class Field;
 class Boundaries;
 class Gui;
+class Ghost;
 
 class Player {
   std::string name;
@@ -37,7 +38,7 @@ public:
   void setLives(int new_lives);
   void setGame(bool new_game);
 
-  void Move(Gui& gui, Direction direction, Field& field, Boundaries& boundaries);
+  void Move(Gui& gui, Direction direction, Field& field, Boundaries& boundaries, Ghost& ghost);
   void GetCoin(Field& field, Gui& gui);
 };
 

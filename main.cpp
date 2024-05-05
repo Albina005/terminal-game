@@ -10,12 +10,15 @@ class Game;
 #include "player.cpp"
 #include "imaging.cpp"
 #include "gui.cpp"
+#include "ghost.cpp"
 
 
 int main() {
   Gui gui;
-  // auto name = gui.GetName();
+  std::cout << "Smp";
+  //// auto name = gui.GetName();
   Player player("SomeName");
+  std::cout << "Smp";
   RunGame(player, gui);
   return 0;
 }

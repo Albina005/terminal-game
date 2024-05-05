@@ -317,9 +317,11 @@ CMakeFiles/ProjectTP.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/bits/this_thread_sleep.h \
   ../gui.h \
+  ../ghost.h \
   ../player.cpp \
   ../imaging.cpp \
-  ../gui.cpp
+  ../gui.cpp \
+  ../ghost.cpp
 
 
 ../imaging.cpp:
@@ -698,6 +700,8 @@ CMakeFiles/ProjectTP.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
+../ghost.cpp:
+
 /usr/include/SFML/Window/Cursor.hpp:
 
 /usr/include/c++/11/bits/exception_ptr.h:
@@ -769,6 +773,8 @@ CMakeFiles/ProjectTP.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/ext/aligned_buffer.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+../ghost.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 

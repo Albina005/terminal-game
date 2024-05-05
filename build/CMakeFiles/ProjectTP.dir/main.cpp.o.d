@@ -1,5 +1,6 @@
-CMakeFiles/ProjectTP.dir/main.cpp.o: /home/albina/project_tp/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/ProjectTP.dir/main.cpp.o: \
+ /home/albina/tp_tasks/project_tp/main.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -240,11 +241,17 @@ CMakeFiles/ProjectTP.dir/main.cpp.o: /home/albina/project_tp/main.cpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp /usr/include/curses.h \
  /usr/include/ncurses_dll.h /usr/include/unctrl.h /usr/include/curses.h \
- /home/albina/project_tp/field.cpp /home/albina/project_tp/field.h \
- /home/albina/project_tp/player.h /home/albina/project_tp/imaging.h \
- /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
- /usr/include/c++/11/limits /usr/include/c++/11/bits/parse_numbers.h \
- /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
+ /home/albina/tp_tasks/project_tp/field.cpp \
+ /home/albina/tp_tasks/project_tp/field.h \
+ /home/albina/tp_tasks/project_tp/player.h \
+ /home/albina/tp_tasks/project_tp/imaging.h /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/limits \
+ /usr/include/c++/11/bits/parse_numbers.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h \
- /home/albina/project_tp/gui.h /home/albina/project_tp/player.cpp \
- /home/albina/project_tp/imaging.cpp /home/albina/project_tp/gui.cpp
+ /home/albina/tp_tasks/project_tp/gui.h \
+ /home/albina/tp_tasks/project_tp/ghost.h \
+ /home/albina/tp_tasks/project_tp/player.cpp \
+ /home/albina/tp_tasks/project_tp/imaging.cpp \
+ /home/albina/tp_tasks/project_tp/gui.cpp \
+ /home/albina/tp_tasks/project_tp/ghost.cpp

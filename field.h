@@ -9,6 +9,10 @@
 #include <utility>
 #include <string>
 
+class Player;
+class Ghost;
+class Boundaries;
+
 class Field {
   const int width = 20;
   const int height = 20;
@@ -18,12 +22,11 @@ public:
   std::vector<std::pair<int, int>> available_coins;
   Field();
 
-
-
   int getWidth() const;
   int getHeight() const;
   int GetNumCoins() const;
   void SetCoins();
+  void SetField(Player& player, Ghost& ghost, Boundaries& bound);
 };
 
 class Boundaries {
